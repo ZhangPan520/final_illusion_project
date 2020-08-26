@@ -1,0 +1,168 @@
+@import '/css/modules/reset.css';
+@import '/css/modules/header.css';
+@import '/css/modules/footer.css';
+@import'/css/modules/log.css';
+@mixin center {
+    width: 1200px;
+    margin:{
+        left: auto;
+        right: auto;
+    }
+}
+body{
+    background-color: black;
+}
+.change{
+    color: white !important;
+}
+.banner{
+    .img img{
+        width: 100%;
+        height: 460px;
+    }
+    .banner-message{
+        height: 40px;
+        line-height: 40px;
+        position: relative;
+        @include center;
+        a{
+            color:white;
+        }
+        .login{
+            width: 300px;
+            height: 460px;
+            font-size: 15px;
+            position: absolute;
+            text-align: center;
+            top:-460px;
+            z-index:5;
+            background-color: black;
+            color:white;
+            .circle{
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+                box-sizing: border-box;
+                border:1px solid #797979;
+                text-align: center;
+                line-height: 124px;
+                font-size: 15px;
+                margin: 0 auto;
+                margin-bottom: 24px;
+                color:white;
+                img{
+                    border-radius: 50%;
+                }
+            }
+            p{
+                margin:{
+                    top: 10px;
+                    bottom: 72px;
+                }
+            }    
+            button{
+                width: 98px;
+                height: 40px;
+                border:none;
+                font-size: 12px;
+                text-align: center;
+                line-height: 40px;
+                background-color:#ce0f30;
+                border-radius: 3px;
+                color:white;
+                cursor: pointer;
+            }    
+        }
+    }
+}
+.productContainer{
+    background-color: #f2f2f2;
+    padding-bottom: 40px;
+    .product{
+        @include center;
+        .title{
+            height:64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            a{
+                width: 98px;
+                height: 40px;
+                color:white;
+                background-color:#ce0f30;
+                border-radius: 3px;
+                border: none;
+                text-align: center;
+                line-height: 40px;
+            }
+        }
+        .construction{
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            padding:{
+                left:6px;
+                right:6px
+            }
+            justify-content: space-between;
+            a{
+                width:25%;
+                height:400px;
+                padding-top: 12px;
+                box-sizing: border-box;
+                .img{
+                    text-align: center;
+                    img{
+                        width: 287px;
+                        height:287px;
+                        object-fit: cover;
+                    }
+                }
+                p{
+                    color: black;
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin:{
+                        top:14px;
+                        bottom: 20px;
+                    }
+                }
+                span{
+                    color:#ce0f30;
+                    font-size: 20px;
+                }
+                i{
+                    color:#ce0f30;
+                    vertical-align: 2px;
+                }
+            }
+        }
+        .fourth a{
+            position: relative;
+            >img{
+                position: absolute;
+                right:10px;
+                top:12px;
+            }
+        }
+    }
+}
+.searchAll{
+    @include center;
+    height:36px;
+    border-radius: 2px;
+    border:1px solid #ce1132;
+    color:#ce1132;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+body,html{
+    height: 100%;
+}
+.swiper-slide img{
+    width:100%;
+    height: 460px;
+    object-fit: cover;
+}

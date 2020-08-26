@@ -1,0 +1,16 @@
+{
+  "id": "2021940",
+  "name": "最终幻想",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7450650",
+      "name": "右箭头",
+      "font_class": "youjiantou",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    }
+  ]
+}

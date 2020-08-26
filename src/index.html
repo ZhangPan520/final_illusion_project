@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/modules/swiper.min.css">
+</head>
+<body>
+   <header></header>
+    <div class="banner">
+        <div class="swiper-container" style="width:100%;height:460px">
+            <div class="swiper-wrapper">
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <script type="text/html" id="swiperSlideTemplate">
+            {{each list item}}
+                <div class="swiper-slide"><img src={{item.src}} alt=""></div>
+            {{/each}}
+        </script>
+        <div class="banner-message">
+            <a href="">
+                <img src="/images/gonggao.png" alt="">&nbsp;&nbsp;
+                公告： 盛趣游戏商城运营中，欢迎大家捉虫轻拍
+            </a>
+            <div class="login">
+                <div class="circle">
+                        <img src="/images/logogin.png" alt="">
+                </div>
+                <span>欢迎来到</span>
+                <p>最终幻想14 Online</p>
+                <button class="logBtn fix">立即登录</button>
+            </div>
+        </div>
+    </div>
+    <div class="productContainer">
+        <div class="product">
+            <!-- <div class="one">
+                <div class="title">
+                    <h3>新品推荐</h3>
+                    <a href="">全部商品</a>
+                </div>
+                <div class="construction">
+                    <a href ="" class="contain">
+                        <div class="img"><img src="/images/test.jpg" alt=""></div>
+                        <p>永久套转</p>
+                        <span>5000</span>
+                        <i>点券</i>
+                    </a>
+                </div>
+            </div> -->
+        </div>
+         <!-- 数据模板  -->
+         <script type="text/html" id ="dataTemplate">
+            {{each list item}}
+                    <a href ="/html/details.html?id={{item.productId}}" class="contain">
+                        <div class="img"><img src={{item.product.picUrl}} alt=""></div>
+                        <p>{{item.product.description}}</p>
+                        <span>{{item.price}}</span>
+                        <i>点券</i>
+                    </a>
+                </div>
+            {{/each}}
+        </script>
+        <!-- 标题模板 -->
+        <script type="text/html" id='titleTemplate'>
+            {{each list item}}
+            <div class="one">
+                <div class="title">
+                    <h3>{{item.columnName}}</h3>
+                    <a href="/html/list.html">全部商品</a>
+                </div>
+                <div class="construction" ></div>
+            </div>
+            {{/each}}
+        </script>
+
+        <div class="searchAll" onclick="location.href='/html/list.html'">
+            查询全部商品
+        </div>
+    </div>
+    <footer></footer>
+    <div class="logNowCon"></div>
+    
+    <script src="/libs/require/require.min.js" data-main="/js/index.js"></script>
+</body>
+</html>

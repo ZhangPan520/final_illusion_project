@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/libs/iconfont/iconfont.css">
+</head>
+<body>
+    <header></header>
+    <div class="path">
+        <a href="/index.html">盛趣游戏商城</a>
+        <span class="iconfont icon-youjiantou"></span>
+        <a href="/index.html">最终幻想14 Online</a>
+        <span class="iconfont icon-youjiantou"></span>
+        <span class="productName">请给数据</span>
+    </div>
+    <div class="cartProduct">
+        <div class="shamContain">
+            <span class="sham">虚拟商品0</span>
+            <div class="line"></div>
+        </div>
+        <div class="woods">
+            <div class="empty">
+                <div class="img">
+                    <img src="/images/pic_defult_cart.png" alt="">
+                    <span>购物车空空如也，点此去</span>
+                    <a href="/index.html">逛逛</a>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>商品信息</td>
+                        <td>单价(元)</td>
+                        <td>数量</td>
+                        <td>金额(元)</td>
+                        <td>操作</td>
+                        <tr><td colspan="5">
+                            <input type="checkbox" id="seAll">
+                            <label for="seAll">全选</label>
+                            <input type="checkbox" id="deleteAll" style="display: none;">
+                            <label for="deleteAll" style="color:red;cursor: pointer; margin-left: 5px;">全部删除</label>
+                        </td></tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 商品模板 -->
+                    <!-- <tr>
+                        <td>
+                            <div class="sel">
+                                <input type="checkbox">
+                            </div>
+                            <div class="show">
+                                <img src="/images/test.jpg" alt="">
+                            </div>
+                            <div class="msg">
+                                <span>[现货]</span>
+                                <p class="active">六周年活动</p>
+                                <span>惊天看了看噶asdgdgasdgsgg</span>
+                        </div>
+                        </td>
+                        <td>
+                            <span>20.00元</span>
+                        </td>
+                        <td>
+                            <div class="select_num">
+                                <div class="select">
+                                    <button disabled class="sub">-</button>
+                                    <i class="num">1</i>
+                                    <button class="add">+</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>20元</td>
+                        <td><span>删除</span></td>
+                    </tr> -->
+                </tbody>
+                <script type="text/html" id="productTemplate">
+                    {{each list item}}
+                    <tr id={{item.id}}>
+                        <td>
+                            <div class="sel">
+                                <input type="checkbox">
+                            </div>
+                            <div class="show">
+                                <img src={{item.img}} alt="">
+                            </div>
+                            <div class="msg">
+                                <span>[{{item.name}}]</span>
+                                <p class="active">六周年活动无敌</p>
+                                <span>{{item.msg}}</span>
+                        </div>
+                        </td>
+                        <td>
+                            <span class="productPrice">{{item.price}}</span>
+                        </td>
+                        <td>
+                            <div class="select_num">
+                                <div class="select">
+                                    <button disabled class="sub">-</button>
+                                    <i class="num">{{item.num}}</i>
+                                    <button class="add">+</button>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="priceSum">{{item.sum}}</td>
+                        <td><strong class="del">删除</strong></td>
+                    </tr>
+                    {{/each}}
+                </script>
+                <tfoot>
+                    <td colspan="5">
+                        <div class="buy">
+                            去结算
+                        </div>
+                        <div class="money">
+                            <span>已选商品</span><i class="hasNum">0</i><span>件</span>&nbsp;&nbsp;<span>总价:</span><i class="hasSum">0.00元</i>
+                            <p>不含运费和其他优惠</p>
+                        </div>
+                        
+                    </td>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <footer></footer>
+    <script src="/libs/require/require.min.js" data-main="/js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+@mixin center {
+    width: 1200px;
+    margin:{
+        left: auto;
+        right: auto;
+    }
+}
+.headerContain{
+    background-color: black;
+}
+.header{
+    @include center;
+    font-size: 0px;
+    .header-top{
+        font-size: 12px;
+        height: 32px;
+        line-height: 32px;
+        text-align: right;
+        margin-bottom: 10px;
+        span,a{
+            color: #9a9a9a;
+        }
+        a:nth-child(3){
+            margin:{
+                right: 18px;
+                left: 18px;
+            }
+        }
+        a:nth-child(2):hover{
+            color:blue;
+        }
+    }
+    .header-center{
+        height: 65px;
+        border-bottom:1px solid #393031;
+        .logo{
+            float: left;
+            img{
+                margin-right: 20px;
+            }
+        }
+        .search{
+            float: right;
+            height: 42px;
+            margin-right: 8px;
+            .content{
+                float: left;
+                margin-right: 8px;
+                border:1px solid #ce0f30;
+                input{
+                    width: 271px;
+                    height:42px;
+                    border: none;
+                    outline: none;
+                    font-size: 12px;
+                    text-indent: 15px;
+                    line-height: 42px;
+                    color:#9a9a9a;
+                    background-color: transparent;
+                }
+                button{
+                    width: 44px;
+                    height: 42px;
+                    border:none;
+                    background-color:#ce0f30 ;
+                    vertical-align: bottom;
+                }
+            }
+            .cart{
+                width: 187px;
+                float: right;
+                font-size: 20px;
+                font-size: 0px;
+                a{
+                    font-size: 20px;
+                    color: white;
+                    .gwc{
+                        float: left;
+                        width: 131px;
+                        height: 44px;
+                        text-align: center;
+                        line-height: 44px;
+                        background-color: #ce0f30;
+                        border-right: 1px solid #b00b27;
+                        img{
+                            vertical-align:-3px;
+                        }
+                    }
+                    >span{
+                        float: right;
+                        width: 55px;
+                        height: 44px;
+                        background-color: #ce0f30;
+                        text-align: center;
+                        line-height: 44px;
+                    }
+                }
+            }
+        }
+    }
+    .header-bottom{
+        height: 55px;
+        font-size:15px;
+        padding-left: 24px;
+        box-sizing: border-box;
+        line-height: 55px;
+        a{
+            color:#aaa;
+        }
+    }
+}

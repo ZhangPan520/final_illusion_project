@@ -1,0 +1,83 @@
+.logNow{
+    background-color: white;
+    width:450px;
+    height:550px;
+    border-radius: 10px;
+    .log_Img{
+        text-align: center;
+        margin:{
+            top:20px;
+            bottom: 16px;
+        }
+        p{
+            font-size: 16px;
+            font-weight: bold;
+            color:black;
+        }
+    }
+    table{
+        width: 340px;
+        height:49px;
+        table-layout: fixed;
+        border-collapse: collapse;
+        margin:{
+            left:auto;
+            right:auto;
+        }
+        td{
+            border:1px solid #c7c7c7;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            color:black
+        }
+    }
+    .tab_1{
+        text-align: center;
+    }
+    button{
+        width: 342px;
+        height: 42px;
+        background-color:#e5004f;
+        font-size: 18px;
+        color:white;
+        border:none;
+        outline:none;
+    }
+    input{
+        width:342px;
+        height:40px;
+        border:none;
+        outline: none;
+        text-indent: 14px;
+        border:1px solid #c7c7c7;
+        &:first-child{
+            margin:30px;
+        }
+        &:nth-child(2){
+            margin-bottom: 72px;
+        }
+    }
+    .help{
+        width:342px;
+        margin:{
+            top:15px;
+            bottom:8px;
+            left:auto;
+            right:auto;
+        }
+        display:flex;
+        justify-content:space-between; 
+        a{
+            span{
+                color:#e5004f;
+            }
+        }
+    }
+    .wegame{
+        margin-left:54px;
+    }
+}
+.logNowCon{
+    display:none,
+}
