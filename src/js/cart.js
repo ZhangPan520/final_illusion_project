@@ -1,5 +1,5 @@
 require(['./config'],()=>{
-    require(['template','header','jquery'],(template,Header)=>{
+    require(['template','header','log','jquery'],(template,Header,log)=>{
         class Cart{
             constructor(){
                 this.empty=$('.empty');
@@ -9,13 +9,13 @@ require(['./config'],()=>{
                 this.isChecked = false;
                 this.delAll=$('#deleteAll');
                 this.del =$('.del');
-                this.init()
                 this.bindEvents();
                 this.sub = $('.sub');
                 this.add=$('.add');
                 this.num = $('.num');
                 this.hasNum=$('.hasNum');
                 this.hasSum=$('.hasSum');
+                this.init()
             }
             init(){
                 
@@ -25,8 +25,10 @@ require(['./config'],()=>{
                 })
                 $('header').load('/html/modules/header.html');
                 $('footer').load('/html/modules/footer.html');
+                $('')
                 setTimeout(function(){
                     new Header().init();
+                    new log();
                 },100)
                 this.loadProduct();
             }

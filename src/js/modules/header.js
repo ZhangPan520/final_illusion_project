@@ -42,14 +42,19 @@ define(['jquery','utils'],()=>{
                         right:6
                     })
                 }else{
-                    if($(e.target).parents('.gwc')){
+                        e.preventDefault()
+                    if($(e.target).parents('.gwc').length==1){
+                        console.log(e.target)
                         location.href='/html/cart.html'
+                    }else{
+                        console.log("En")
+                        utils.setCookie(document.cookie.split('=')[0],document.cookie.split('=')[1],{
+                            expires: -7, 
+                            path: '/'
+                        })
+                        window.location.reload();
                     }
-                    utils.setCookie(document.cookie.split('=')[0],document.cookie.split('=')[1],{
-                        expires: -7, 
-                        path: '/'
-                    })
-                    window.location.reload();
+                    
                     
                 }
 
