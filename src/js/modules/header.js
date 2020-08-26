@@ -49,8 +49,8 @@ define(['jquery','utils'],()=>{
                         expires: -7, 
                         path: '/'
                     })
-                    location.href='/index.html'
-
+                    window.location.reload();
+                    
                 }
 
             })
@@ -61,12 +61,26 @@ define(['jquery','utils'],()=>{
             })
         }
         init(){
+            $.get('/api/ps/product/getProduct',{
+                skuId:"02618cee722f17bcf4bb"
+            },resp=>{
+
+            },'json')
             setTimeout(()=>{
                 this.logNow=$('.logNowCon .logNow');
             },500)
+            if(!document.cookie){
+                this.fix.text("登录")
+                this.welc.text(`盛趣游戏商城欢迎您`);
+            this.headerNum.text(0);
+
+            }else{
+                this.fix.text("退出")
+               this.welc.text(`${document.cookie.split('=')[0]}欢迎您`);
             this.headerNum.text(localStorage.getItem('numSum'));
-            this.fix.text("退出")
-            this.welc.text(`${document.cookie.split('=')[0]}欢迎您`);
+
+            }
+            
         }
     }
     return Header;

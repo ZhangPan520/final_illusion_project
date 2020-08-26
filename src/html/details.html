@@ -38,8 +38,13 @@
                         </div>
                     </div>
                     <div class="smallImg">
-                        <img src="/images/test.jpg" alt="">
+
                     </div>
+                    <script type="text/html" id="smallImgTemplate">
+                        {{each list item}}
+                            <img src={{item}} alt="">
+                        {{/each}}
+                    </script>
                 </div>
                 <div class="right">
 
@@ -81,6 +86,8 @@
             </div>
         </div>
     </div>
+    <div class="logNowCon"></div>
+
     <footer></footer>
     <script src="/libs/require/require.min.js" data-main="/js/details.js"></script>
 </body>

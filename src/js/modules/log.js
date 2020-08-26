@@ -21,7 +21,7 @@ define(['jquery'],()=>{
                                 path: '/'
                             })
                             alert(resp.body.msg)
-                            location.href='/index.html'
+                            window.location.reload()
                         }else{
                             alert(resp.body.msg)
                         }

@@ -1,7 +1,8 @@
 require(['./config'],()=>{
-    require(['header','jquery'],(header)=>{
+    require(['header','log','template','jquery'],(header,log,template)=>{
         class Details{
             constructor(){
+                header
                 this.dataApi=null;
                 this.zoom = $('.zoom');
                 this.bigImg = $('.bigImg');
@@ -10,6 +11,8 @@ require(['./config'],()=>{
                 this.add=$('.add');
                 this.addCart=$('.addCart')
                 this.num = $('.num');
+                this.logNowCon=$('.logNowCon');
+                this.smallImg=$('.smallImg');
                 this.buyNow=$('.buyNow')
                 $('header').load('/html/modules/header.html');
                 $('footer').load('/html/modules/footer.html')
@@ -39,13 +42,11 @@ require(['./config'],()=>{
                     merchantId:1,page:1,pageSize:40,_:1598079825951
                 },(resp)=>{
                     const data = resp.data.productList
-                    console.log(data)
                     const id = location.search.slice(4)
                     var current = data.filter(function(item){
                         return item.productId == id;
                     })
                     this.dataApi = current[0];
-                    console
                     $('.productName').html(current[0].product.description);
                     $('.price i').html(current[0].price);
                     $('.img img').attr('src',current[0].product.picUrl);
@@ -54,10 +55,28 @@ require(['./config'],()=>{
                     $('.bigImg').css({
                         backgroundImage:`url(${current[0].product.picUrl})`
                     })
+                    $.get('/api/ps/product/getProduct',{
+                        skuId:this.dataApi.defaultSKUId,
+                    },resp=>{
+                        const smll = template('smallImgTemplate',{
+                            list:resp.data.product.picUrls,
+                        })
+                        this.smallImg.html(smll);
+                        $('.smallImg img').on('mouseenter',(e)=>{
+                            var src = e.target.src;
+                            this.bigImg.css({
+                                backgroundImage:`url(${src})`,
+                            });
+                            $('.img img').attr('src',src);
+                        })
+                    })
+
                 })
                 setTimeout(()=>{
                     new header().init();
+                    new log()
                 },100)
+                $(this.logNowCon).load("/html/modules/log.html")
             }
             move (e) {
                 var left = e.clientX - this.img.offset().left - this.zoom.width() / 2
@@ -99,10 +118,8 @@ require(['./config'],()=>{
                             if(resp.code==200){
                                 alert(resp.body.msg)
                             }else if(resp.code==205){
-                                console.log(resp)
                             }
                         },'json')
-                        console.log("NE")
                     var num = Number(localStorage.getItem('numSum'))+Number($('.num').text());
                     localStorage.setItem('numSum',num);
                     new header().init();
