@@ -12,6 +12,9 @@ define(['jquery','utils'],()=>{
             this.bindEvents()
         }
         bindEvents(){
+            setTimeout(()=>{
+                this.logOut =$('.logOut')
+            },300)
             $(this.logoBtn).on('click',(e)=>{
                 if(!document.cookie){
                     e.preventDefault();

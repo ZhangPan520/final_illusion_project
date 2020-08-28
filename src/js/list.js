@@ -28,8 +28,10 @@ require(['./config'],()=>{
                     },'json')
                 })
                 $('.up').on('click',()=>{
-                    var data=+localStorage.getItem('pages')+2
-                    console.log(data)
+                    var data=+localStorage.getItem('pages')-1;
+                    if(data<0){
+                        data=+this.numPages-1
+                    }
                     $.get('/api/ps/product/list',{
                         merchantId:1,page:data,
                         pageSize:40,
@@ -38,28 +40,28 @@ require(['./config'],()=>{
                             list:resp.data.productList
                         });
                         $(".construction").html(html)
-                        localStorage.setItem('pages',data-1);
+                        localStorage.setItem('pages',data);
                         $('.pages span').attr('class','')
-                        $('.pages span').eq(localStorage.getItem('pages')).attr('class','active')
+                        $('.pages span').eq(data).attr('class','active')
                         
                     },'json')
                 })
                 $('.down').on('click',()=>{
-                    var data=+localStorage.getItem('pages')+1
-                    console.log(data)
+                    var data=+localStorage.getItem('pages')+1;
+                    if(data>this.numPages-1){
+                        data=0
+                    }
                     $.get('/api/ps/product/list',{
                         merchantId:1,page:data,
                         pageSize:40,
                     },resp=>{
-                        console.log('运行了')
-                        console.log(resp)
                         const html = template('dataTemplate',{
                             list:resp.data.productList
                         });
                         $(".construction").html(html)
-                        localStorage.setItem('pages',data-1);
+                        localStorage.setItem('pages',data);
                         $('.pages span').attr('class','')
-                        $('.pages span').eq(localStorage.getItem('pages')).attr('class','active')
+                        $('.pages span').eq(data).attr('class','active')
                         
                     },'json')
                 })
@@ -82,12 +84,18 @@ require(['./config'],()=>{
                         list:resp.data.productList
                     });
                     $(".construction").html(html)
-                    var numPages =Number.parseInt(resp.data.totalCount/40)+1
-                    for(var i=1;i<=numPages;i++){
+                    this.numPages =Number.parseInt(resp.data.totalCount/40)+1
+                    for(var i=1;i<=this.numPages;i++){
                             this.pages.append(`<span data-index=${i}>${i}</span>`)
                     }
+                    if(localStorage.getItem('pages')){
+                        $('.pages span').eq(localStorage.getItem('pages')).attr('class','active')
+                    }else{
                     localStorage.setItem('pages',0);
                     $('.pages span').eq(localStorage.getItem('pages')).attr('class','active')
+                        $('.pages span').eq(localStorage.getItem('pages')).attr('class','active')
+                    }
+                    
                 },'json')
             }
         }
